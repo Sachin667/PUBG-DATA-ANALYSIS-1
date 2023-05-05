@@ -38,3 +38,14 @@ the pubg game.**
 * **weaponsAcquired** - Number of weapons picked up.
 * **winPoints** - Points earned after the game(based on survival time,assists,kills,maxplac etc)
 * **winPlacePerc** - The target of prediction. This is a percentile winning placement, where 1 corresponds to 1st place, and 0 corresponds to last place in the match.
+
+**Performance of Top 3 Models**
+
+* Model Creation using linear regression,GB regressor,and Decision tree regressor didnot come as expected(Gives an R2 which is less than 90 ).
+* **XGB Regression** : XGB regressor gives good result with default parameters.We got an R2 of 91 and Adjusted R2 90,but after parameter tuning R2 score was reduced to 87..
+* **Random Forest Regression** :  We expected that random forest would work better as the model would not be on an assumption that the winPlacePerc is a linear combination of the inputs. At the cost of more time taken for fit(2 hours), random forest is able to discover more complex dependencies.We got good R2(91.5) and less MSE(0.087) .But after tuning the model overfits, where  R2 reduced to 63 and RMSE increased to 0.184. The scores was unsatisfactory, So we decide to try LGBM(Light Gradient Boosting ) because these boosting tree models work quite well with numerical and continuous variables which is entirely what our dataset is.
+
+* **LGBM** : We found that this gradient boosting model worked best and it gives an **R2 which is nearer to 93 and Adjusted R2 of 92**. LGBM is a whole model of decision trees which learns by fitting negative gradients which are called residual errors. LGBM has over 100 parameters but we have used only few which we found it necessary to prevent the model from overfit..Only small amount of time taken for its run when compared to Random Forest and also produced good result too..
+
+
+
