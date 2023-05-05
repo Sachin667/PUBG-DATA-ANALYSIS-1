@@ -7,10 +7,12 @@ PlayerUnknown’s Battlegrounds (PUBG) is a highly competitive game that has cap
 * **Task 2:-Create a predictive model which is an attempt to predict the win probability
 of the Pubg match and to look at the important factors affecting the win probability of
 the pubg game.**
+
+
 **Feature Analysis**
 
 
-  * **groupId** - ID to identify a group within a match
+* **groupId** - ID to identify a group within a match
 * **matchId** - ID to identify match(Maximum 100 players in each max)
 * **assists** - Number of enemy players this player damaged that were killed by teammates
 * **boosts** - Number of boost items used(energy drinks)
